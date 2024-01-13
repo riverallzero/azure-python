@@ -10,7 +10,7 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 
 ```가상 머신```, ```Cloud - Based Storage```, ```Azure App Services```, ```Azure Functions```, ```Azure Container Instances```, ```Azure Kubernetes Services```, ```Azure Cosmos DB```, ```인공 지능 및 머신 러닝```, ```지역별 Data Center```, ```Azure Portal```
 
-- 이 저장소는 Azure 서비스를 파이썬으로 이용하는 방법을 소개한다.
+- 본 저장소는 Azure 서비스를 파이썬으로 이용하는 방법을 소개한다.
 - 티스토리에 게시한 사용설명서와 이용되는 코드를 서비스별로 링크하는 방식을 사용한다.
 
 ## service
