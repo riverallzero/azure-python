@@ -5,10 +5,12 @@
   </a>
 </p>
 
-**Azure** | Microsoft에서 제공하는 클라우드 서비스인 Azure는 새로운 솔루션을 구현하여 현재의 문제를 해결하고 미래로 나아가는 데 도움이 되도록 설계된 200개가 넘는 제품 및 클라우드 서비스이다. 
-선택한 도구와 프레임워크를 사용하여 클라우드, 온-프레미스 및 애플리케이션 빌드, 실행, 관리가 가능하다.
+**Azure** | Microsoft에서 제공하는 클라우드 서비스로 사용자가 원하는 도구와 프레임워크를 사용하여 대규모 글로벌 네트워크에서 애플리케이션을 자유롭게 빌드, 관리 및 배포 가능하다.
+Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소프트웨어(SaaS)를 지원한다.
 
-- 이 저장소는 Azure 서비스를 파이썬으로 이용하는 방법을 포함한다.
+```가상 머신```, ```Cloud - Based Storage```, ```Azure App Services```, ```Azure Functions```, ```Azure Container Instances```, ```Azure Kubernetes Services```, ```Azure Cosmos DB```, ```인공 지능 및 머신 러닝```, ```지역별 Data Center```, ```Azure Portal```
+
+- 이 저장소는 Azure 서비스를 파이썬으로 이용하는 방법을 소개한다.
 - 티스토리에 게시한 사용설명서와 이용되는 코드를 서비스별로 링크하는 방식을 사용한다.
 
 ## service
