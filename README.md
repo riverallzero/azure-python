@@ -14,5 +14,8 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 - 티스토리에 게시한 사용설명서와 이용되는 코드를 서비스별로 링크하는 방식을 사용한다.
 
 ## service
-- ```computer vision```
+### computer vision
   - [Computer Vision: OCR 이용해 이미지에서 텍스트 추출하기](https://riverallzero.tistory.com/41) - [computervision_ocr.ipynb](https://github.com/riverallzero/azure-python/blob/main/computervision_ocr.ipynb)
+
+### face api
+  - [Face API: 이미지에서 특정 얼굴 찾기](https://riverallzero.tistory.com/64) - [face_detection.ipynb](https://github.com/riverallzero/azure-python/blob/main/face_detection.ipynb)
