@@ -1,4 +1,4 @@
-# azure-python
+# Azure-AI-Python
 <p align="center">
   <a href="https://azure.microsoft.com/ko-kr"/>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/1200px-Microsoft_Azure.svg.png" width="10%"/>
