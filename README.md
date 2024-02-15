@@ -23,3 +23,6 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 ### face api
   - [Face API: 이미지에서 특정 얼굴 찾기](https://riverallzero.tistory.com/64) - [face_detection.ipynb](https://github.com/riverallzero/azure-python/tree/main/face-api/face_detection.ipynb)
 
+### machine learning studio
+  - [Machine Learning Studio: 머신러닝을 위한 주피터 노트북 만들기](https://riverallzero.tistory.com/69)
+  - [Machine Learning Studio: 생성된 컴퓨팅 인스턴스로 파이참에서 원격 개발하기](https://riverallzero.tistory.com/70) 
