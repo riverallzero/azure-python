@@ -25,4 +25,4 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 
 ### machine learning studio
   - [Machine Learning Studio: 머신러닝을 위한 주피터 노트북 만들기](https://riverallzero.tistory.com/69)
-  - [Machine Learning Studio: 생성된 컴퓨팅 인스턴스로 파이참에서 원격 개발하기](https://riverallzero.tistory.com/70) 
+  - [Machine Learning Studio: 생성된 컴퓨팅 인스턴스로 파이참에서 원격 개발하기](https://riverallzero.tistory.com/70) 
