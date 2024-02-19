@@ -15,14 +15,17 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 
 ## service
 ### computer vision
-  - [Computer Vision: OCR 이용해 이미지에서 텍스트 추출하기](https://riverallzero.tistory.com/41) - [ocr.ipynb](https://github.com/riverallzero/azure-python/tree/main/computer-vision/ocr.ipynb)
+- [Computer Vision: OCR 이용해 이미지에서 텍스트 추출하기](https://riverallzero.tistory.com/41) - [ocr.ipynb](https://github.com/riverallzero/azure-python/tree/main/computer-vision/ocr.ipynb)
 
 ### custom vision
-  - [Custom Vision: 코드 없이 개 vs 고양이 이미지 분류 모델 만들기](https://riverallzero.tistory.com/68)
+- [Custom Vision: 코드 없이 개 vs 고양이 이미지 분류 모델 만들기](https://riverallzero.tistory.com/68)
 
 ### face api
-  - [Face API: 이미지에서 특정 얼굴 찾기](https://riverallzero.tistory.com/64) - [face_detection.ipynb](https://github.com/riverallzero/azure-python/tree/main/face-api/face_detection.ipynb)
+- [Face API: 이미지에서 특정 얼굴 찾기](https://riverallzero.tistory.com/64) - [face_detection.ipynb](https://github.com/riverallzero/azure-python/tree/main/face-api/face_detection.ipynb)
 
 ### machine learning studio
-  - [Machine Learning Studio: 머신러닝을 위한 주피터 노트북 만들기](https://riverallzero.tistory.com/69)
-  - [Machine Learning Studio: 생성된 컴퓨팅 인스턴스로 파이참에서 원격 개발하기](https://riverallzero.tistory.com/70) 
+- [Machine Learning Studio: 머신러닝을 위한 주피터 노트북 만들기](https://riverallzero.tistory.com/69)
+- [Machine Learning Studio: 생성된 컴퓨팅 인스턴스로 파이참에서 원격 개발하기](https://riverallzero.tistory.com/70)
+
+### document intelligence
+- [Document Intelligence: 영수증 사진으로 회계 엑셀 파일 만들기](https://riverallzero.tistory.com/71) - [receipt_extraction.ipynb](https://github.com/riverallzero/azure-ai-python/blob/main/document-intelligence/receipt_extraction.ipynb)
