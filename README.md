@@ -29,3 +29,8 @@ Azure는 다음의 (컴퓨팅)서비스로 인프라(IaaS), 플랫폼(PaaS), 소
 
 ### document intelligence
 - [Document Intelligence: 영수증 사진으로 회계 엑셀 파일 만들기](https://riverallzero.tistory.com/71) - [receipt_extraction.ipynb](https://github.com/riverallzero/azure-ai-python/blob/main/document-intelligence/receipt_extraction.ipynb)
+
+### database mysql
+- [Database for MySQL: Python으로 MySQL 데이터베이스 다루기](https://riverallzero.tistory.com/72) - [azure-mysql-connection-test.ipynb](https://github.com/riverallzero/azure-python/blob/main/database-mysql/azure-mysql-connection-test.ipynb)
+- [Database for MySQL: Python으로 데이터가 저장되는 ToDo 리스트 만들기](https://riverallzero.tistory.com/73) - [📁static & 📁templates & app.py](https://github.com/riverallzero/azure-python/tree/main/database-mysql)
+  
