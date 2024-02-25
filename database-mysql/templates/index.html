@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+
+    <style>
+        .card-header {
+            height: 55px;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container my-5">
+    <nav class="navbar bg-dark" style="color: #ffffff; font-weight: bold;">
+        <a class="navbar-brand">
+            <img src="../static/images/calendar.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            ToDo List
+        </a>
+    </nav>
+
+    <br/>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    To Do
+                    <button type="button" class="btn btn-dark btn-sm float-right" data-toggle="modal"
+                            data-target="#addTaskModal">
+                        +
+                    </button>
+                </div>
+                <div class="card-body" id="todo">
+                    {% for task in tasks %}
+                        <button type="button" class="btn btn-primary btn-block my-2 draggable" data-toggle="modal"
+                                data-target="#taskContentModal" data-description="{{ task.contents }}">
+                            {{ task.title }}
+                        </button>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 할일 추가 모달 -->
+<div class="modal fade" id="addTaskModal" tabindex="-1" role="dialog" aria-labelledby="addTaskModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addTaskModalLabel">Add</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTaskForm">
+                    <div class="form-group">
+                        <label for="title">Title</label>
+                        <input type="text" class="form-control" id="title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Contents</label>
+                        <textarea class="form-control" id="description" rows="3" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 할일 내용 모달 -->
+<div class="modal fade" id="taskContentModal" tabindex="-1" role="dialog" aria-labelledby="taskContentModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="taskTitle"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="taskContent">
+                <!-- 할일 내용이 추가될 공간 -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger delete-task">delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<script>
+    $(function () {
+        // 새로운 할일 버튼을 만드는 함수
+        function createTaskButton(title, description) {
+            // 버튼 요소 생성
+            var button = $("<button/>", {
+                class: "btn btn-primary btn-block my-2 draggable",
+                text: title,
+            });
+
+            // 할일 내용 데이터 저장
+            button.data("description", description);
+            button.data("cardType", "todo");
+
+            // AJAX를 사용하여 서버로 데이터 전송
+            $.ajax({
+                type: "POST",
+                url: "/add_task", // Python Flask 서버의 라우트 주소
+                data: {title: title, description: description},
+            });
+
+            // 버튼 클릭 이벤트 설정
+            button.on("click", function () {
+                var title = button.text();
+                var description = button.data("description");
+                $("#taskTitle").html(title);
+                $("#taskContent").html(description);
+                $("#taskContentModal").modal("show");
+
+                var deleteButton = $("#taskContentModal .delete-task");
+
+                deleteButton.show();
+
+                // 모달 안의 delete 버튼 클릭 시 이벤트 설정
+                $("#taskContentModal .delete-task").off("click").on("click", function () {
+                    deleteTheButton(button);
+                    $("#taskContentModal").modal("hide");
+
+                    // AJAX를 사용하여 서버로 데이터 삭제 요청 보내기
+                    $.ajax({
+                        type: "POST",
+                        url: "/delete_task", // Python Flask 서버의 라우트 주소
+                        data: {title: title, description: description},
+                    });
+                });
+            });
+
+            return button;
+        }
+
+        $("#addTaskForm").on("submit", function (e) {
+            e.preventDefault();
+            var title = $("#title").val();
+            var description = $("#description").val();
+            var taskButton = createTaskButton(title, description);
+            $("#todo").append(taskButton);
+            $("#addTaskForm")[0].reset();
+            $("#addTaskModal").modal("hide");
+        });
+
+        // 동적으로 생성된 할일 버튼에 대한 클릭 이벤트 처리
+        $("#todo").on("click", ".draggable", function () {
+            var title = $(this).text();
+            var description = $(this).data("description");
+            $("#taskTitle").html(title);
+            $("#taskContent").html(description);
+            $("#taskContentModal").modal("show");
+        });
+
+        // 동적으로 생성된 삭제 버튼에 대한 클릭 이벤트 처리
+        $("#taskContentModal").on("click", ".delete-task", function () {
+            var title = $("#taskTitle").text();
+            var description = $("#taskContent").text();
+
+            $("#taskContentModal").modal("hide"); // 모달 닫기
+            $(".draggable:contains(" + title + ")").remove(); // 해당 할일 버튼 삭제
+
+            // AJAX를 사용하여 서버로 데이터 삭제 요청 보내기
+            $.ajax({
+                type: "POST",
+                url: "/delete_task", // Python Flask 서버의 라우트 주소
+                data: {title: title, description: description},
+            });
+        });
+
+        function deleteTheButton(button) {
+            button.remove();
+        }
+    });
+</script>
+</body>
+</html>
